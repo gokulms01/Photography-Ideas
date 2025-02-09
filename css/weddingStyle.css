@@ -1,15 +1,19 @@
 body {
-
-  background-color: rgb(3, 3, 3);
+  background-color: rgb(47, 47, 47);
   align-items: baseline;
   text-align: center;
   color: rgb(249, 249, 250);
   padding: 23;
+  font-family: "Open Sans", serif;
 
 }
 
 .imgHeader {
-  img {
+  position:relative;
+  max-height:400px;
+  overflow:hidden;
+
+  img { 
     width: 100%;
   }
 
@@ -31,7 +35,9 @@ body {
 
 h3 {
   text-align: center;
-  color: rgb(202, 213, 241);
+  color: rgb(247, 248, 249);
+  font-weight:500;
+  margin-bottom:0;
 }
 .container1 {
 
@@ -45,16 +51,14 @@ h3 {
   border-radius: 7px;
 
   .wedcntr {
-    border-radius: 7px;
-    border-style: solid;
-    text-align: justify;
+    border-top:.5px solid #ffffff82;
     float: right;
     padding: 10px;
     font-family: Arial;
     display: flex;
     gap: 10px;
     justify-content: space-between;
-    border-color:rgb(245, 248, 245);
+    
 
     .sub-wed-cntr {
 
@@ -62,6 +66,8 @@ h3 {
 
       p {
         height: 80px;
+        text-align: left;
+        color: #939393;
       }
     }
   }
@@ -69,20 +75,72 @@ h3 {
 }
 
 .img-cntr {
-  height: 300px;
+  height:300px;
+  /* width:300px ; */
   display: flex;
   flex-direction: column;
   overflow: hidden;
   border-radius: 3px;
 
-  img:hover {
-    opacity: 15%;
-    max-height: 100%;
-    max-width: 100%;
+  &:hover {
+    filter: brightness(0.5) blur(2px);
+    transition:all 0.5s ease-in;  
+    cursor: pointer; 
   }
 
   img {
+    height:100%;
     width: 100%;
+    object-fit:cover;
 
   }
+}
+
+.modalCntr{
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  backdrop-filter: blur(5px) brightness(0.5);
+  display:none;
+    place-items: center;
+    padding:0.8rem;
+}
+
+.modalImgCntr{
+  background-color: white;
+  max-width: 600px;
+  border-radius:5px;
+  overflow:hidden;
+  display: grid;
+  place-items: center;
+  
+  
+  img{
+width:100%;
+  }
+}
+
+@media only screen and (max-width:600px){
+.centerText{
+  font-size: 180% !important;
+}
+
+.wedcntr{
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+
+  .sub-wed-cntr{
+    width:100% !important;
+
+    p{
+      height:100% !important;
+    }
+  }
+}
+
+.img-cntr{
+  height: 100%;
+}
 }
